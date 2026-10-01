@@ -50,4 +50,4 @@ Then open `http://localhost:8000`.
 
 Coordinates and asset information should be spot-checked periodically before treating the map as an authoritative public resource directory.
 
-The map opens with Esri World Imagery satellite imagery. A Street map option using OpenStreetMap is available from the layer control. Review the tile providers' current usage/attribution requirements before a larger public deployment.
+The map opens with Esri World Imagery satellite imagery. A Street map option using OpenStreetMap is available from the visible Satellite / Street map toggle. Review the tile providers' current usage/attribution requirements before a larger public deployment.
