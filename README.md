@@ -1,0 +1,1 @@
+# svolc-asset-map
