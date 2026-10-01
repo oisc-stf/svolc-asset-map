@@ -2,7 +2,16 @@
   'use strict';
   const csvUrl = 'data/assets.csv';
   const map = L.map('map', { zoomControl: true }).setView([35.0, -106.685], 12);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }).addTo(map);
+  const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri',
+    maxZoom: 19
+  });
+  const streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
+  });
+  satellite.addTo(map);
+  L.control.layers({ 'Satellite': satellite, 'Street map': streets }, null, { collapsed: false }).addTo(map);
 
   const colors = {
     'School': '#315d45',
