@@ -11,7 +11,6 @@
     maxZoom: 19
   });
   satellite.addTo(map);
-  const basemapControl = L.control.layers({ 'Satellite': satellite, 'Street map': streets }, null, { collapsed: false, position: 'topright' }).addTo(map);
   map.on('baselayerchange', e => {
     const label = document.getElementById('basemapStatus');
     if (label) label.textContent = `Basemap: ${e.name}`;
