@@ -11,7 +11,24 @@
     maxZoom: 19
   });
   satellite.addTo(map);
-  L.control.layers({ 'Satellite': satellite, 'Street map': streets }, null, { collapsed: false }).addTo(map);
+  const basemapControl = L.control.layers({ 'Satellite': satellite, 'Street map': streets }, null, { collapsed: false, position: 'topright' }).addTo(map);
+  map.on('baselayerchange', e => {
+    const label = document.getElementById('basemapStatus');
+    if (label) label.textContent = `Basemap: ${e.name}`;
+  });
+  const satelliteBtn = document.getElementById('satelliteBtn');
+  const streetBtn = document.getElementById('streetBtn');
+  function setBasemap(layer, name) {
+    if (!map.hasLayer(layer)) map.addLayer(layer);
+    const other = layer === satellite ? streets : satellite;
+    if (map.hasLayer(other)) map.removeLayer(other);
+    document.getElementById('basemapStatus').textContent = `Basemap: ${name}`;
+    satelliteBtn.classList.toggle('active', layer === satellite);
+    streetBtn.classList.toggle('active', layer === streets);
+  }
+  satelliteBtn.addEventListener('click', () => setBasemap(satellite, 'Satellite'));
+  streetBtn.addEventListener('click', () => setBasemap(streets, 'Street map'));
+  setBasemap(satellite, 'Satellite');
 
   const colors = {
     'School': '#315d45',
