@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>South Valley Outdoor Learning Resources</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">South Valley • Outdoor Learning</p>
+      <h1>Outdoor Learning Resources</h1>
+      <p class="subtitle">A working asset map of schools, organizations, businesses, public spaces, and other places that can support outdoor and Environmental STEM learning.</p>
+    </div>
+    <div class="header-actions">
+      <a class="button secondary" href="data/assets.csv" download>Download CSV</a>
+      <button class="button secondary" id="resetBtn" type="button">Reset filters</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar" aria-label="Map filters and resource list">
+      <label class="search-label" for="search">Search resources</label>
+      <input id="search" type="search" placeholder="Name, topic, organization…" autocomplete="off">
+
+      <section class="filter-section">
+        <div class="section-heading"><h2>Resource type</h2><button class="text-button" id="clearTypes" type="button">Clear</button></div>
+        <div id="typeFilters" class="filter-list"></div>
+      </section>
+
+      <section class="filter-section">
+        <div class="section-heading"><h2>Learning topic</h2><button class="text-button" id="clearTopics" type="button">Clear</button></div>
+        <div id="topicFilters" class="filter-list"></div>
+      </section>
+
+      <section class="list-section">
+        <div class="section-heading"><h2>Resources</h2><span id="count" class="count">Loading…</span></div>
+        <div id="resourceList" class="resource-list"></div>
+      </section>
+    </aside>
+
+    <section class="map-panel" aria-label="Interactive map">
+      <div id="map" role="application" aria-label="Interactive map of South Valley outdoor learning resources"></div>
+      <div class="map-note">Map data is maintained in <code>data/assets.csv</code>. Starter coordinates are approximate and should be verified before public use.</div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built as a static, GitHub Pages-ready site.</span>
+    <span>Map tiles © OpenStreetMap contributors.</span>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
