@@ -48,6 +48,6 @@ Then open `http://localhost:8000`.
 
 ## Important data note
 
-The five starter latitude/longitude values are approximate. Verify them before treating the map as an authoritative public resource directory.
+Coordinates and asset information should be spot-checked periodically before treating the map as an authoritative public resource directory.
 
-The map currently uses OpenStreetMap tiles. For a larger public deployment, review the tile provider's usage policy or switch to another tile provider.
+The map opens with Esri World Imagery satellite imagery. A Street map option using OpenStreetMap is available from the layer control. Review the tile providers' current usage/attribution requirements before a larger public deployment.
