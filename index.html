@@ -42,6 +42,11 @@
     </aside>
 
     <section class="map-panel" aria-label="Interactive map">
+      <div class="basemap-bar" aria-label="Basemap selection">
+        <span id="basemapStatus" class="basemap-status">Basemap: Satellite</span>
+        <button id="satelliteBtn" class="basemap-button active" type="button">Satellite</button>
+        <button id="streetBtn" class="basemap-button" type="button">Street map</button>
+      </div>
       <div id="map" role="application" aria-label="Interactive map of South Valley outdoor learning resources"></div>
       <div class="map-note">Map data is maintained in <code>data/assets.csv</code>. Coordinates and asset information should be verified periodically before public use.</div>
     </section>
